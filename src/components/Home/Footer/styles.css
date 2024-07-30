@@ -1,0 +1,32 @@
+.home-footer {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.home-footer h3 {
+  color: #f561d0;
+  font-size: 2rem;
+}
+
+.btn-contact{
+  color: rgb(7, 7, 7);
+}
+
+.contact-form {
+  font-size: medium;
+  text-decoration: none;
+  color: #fcfcfc;
+}
+
+.btn {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: #faf8f8;
+  background-color: #f561d0;
+  font-size: medium;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
