@@ -23,8 +23,8 @@ const Blog = () => {
     fetch(`http://localhost:5000/blogs?id=${id}`) // Fetch blog by ID
       .then((response) => response.json())
       .then((data) => {
-        console.log("Fetched Blog:", data[0]);
-        setBlog(data[0]);
+        console.log("Fetched Blog:", data[id - 1]);
+        setBlog(data[id - 1]);
       })
       .catch((error) => console.error("Error fetching blog:", error));
   }, [id]);
