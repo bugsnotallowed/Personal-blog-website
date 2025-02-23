@@ -4,7 +4,7 @@
   margin: 2.5rem auto 4rem auto;
   padding: 0.5rem;
   border-radius: 5px;
-  border: 1px solid #fdd1f2;
+  border: 1px solid #fc96e2;
 }
 
 .searchBar-wrap form {
@@ -13,7 +13,7 @@
 }
 
 .searchBar-wrap input {
-  background-color: #fcfcfc;
+  background-color: #fdeef7;
   outline: none;
   border: none;
 }

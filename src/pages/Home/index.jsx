@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EmptyList from '../../components/common/EmptyList';
 import BlogList from '../../components/Home/BlogList';
 import Header from '../../components/Home/Header';
@@ -7,8 +7,22 @@ import { blogList } from '../../config/data';
 import Footer from '../../components/Home/Footer';
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(blogList);
-  const [searchKey, setSearchKey] = useState('');
+  // const [blogs, setBlogs] = useState(blogList);
+  const [category, setCategory] = useState('');
+
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/blogs?category=${category}`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch blog data');
+        }
+        return res.json();
+      })
+      .then(data => setBlogs(data))
+      .catch(err => console.error(err));
+  }, [category]);
 
   // Search submit
   const handleSearchBar = (e) => {
@@ -20,7 +34,7 @@ const Home = () => {
   const handleSearchResults = () => {
     const allBlogs = blogList;
     const filteredBlogs = allBlogs.filter((blog) =>
-      blog.category.toLowerCase().includes(searchKey.toLowerCase().trim())
+      blog.category.toLowerCase().includes(category.toLowerCase().trim())
     );
     setBlogs(filteredBlogs);
   };
@@ -28,7 +42,7 @@ const Home = () => {
   // Clear search and show all blogs
   const handleClearSearch = () => {
     setBlogs(blogList);
-    setSearchKey('');
+    setCategory('');
   };
 
   return (
@@ -38,10 +52,10 @@ const Home = () => {
 
       {/* Search Bar */}
       <SearchBar
-        value={searchKey}
-        clearSearch={handleClearSearch}
         formSubmit={handleSearchBar}
-        handleSearchKey={(e) => setSearchKey(e.target.value)}
+        value={category}
+        clearSearch={handleClearSearch}
+        handlecategory={(e) => setCategory(e.target.value)}
       />
 
       {/* Blog List & Empty View */}

@@ -8,15 +8,28 @@ import { Link } from 'react-router-dom';
 import Contact from '../Contact';
 
 const Blog = () => {
-  const { id } = useParams();
+  const { id } = useParams(); //Get blog Id from URL
+  console.log(id);
   const [blog, setBlog] = useState(null);
 
+  // useEffect(() => {
+  //   let blog = blogList.find((blog) => blog.id === parseInt(id));
+  //   if (blog) {
+  //     setBlog(blog);
+  //   }
+  // }, []);
+
   useEffect(() => {
-    let blog = blogList.find((blog) => blog.id === parseInt(id));
-    if (blog) {
-      setBlog(blog);
-    }
-  }, []);
+    fetch(`http://localhost:5000/blogs?id=${id}`) // Fetch blog by ID
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Fetched Blog:", data[0]);
+        setBlog(data[0]);
+      })
+      .catch((error) => console.error("Error fetching blog:", error));
+  }, [id]);
+
+  if (!blog) return <p>Loading...</p>;
 
   return (
     <>
@@ -26,12 +39,13 @@ const Blog = () => {
       {blog ? (
         <div className='blog-wrap'>
           <header>
-            <p className='blog-date'>Published {blog.createdAt}</p>
+            <p className='blog-date'>Published {blog.created_at}</p>
             <h1>{blog.title}</h1>
             <div className='blog-subCategory'>
-              {blog.subCategory.map((category, i) => (
+              {/* Convert subCategory to array and map */}
+              {blog?.subCategory?.split(",").map((category, i) => (
                 <div key={i}>
-                  <Chip label={category} />
+                  <Chip label={category.trim()} />
                 </div>
               ))}
             </div>
@@ -41,10 +55,10 @@ const Blog = () => {
             <img src={blog.authorAvatar} alt='avatar' />
             <div>
               <h6>{blog.authorName}</h6>
-              <p>{blog.createdAt}</p>
+              <p>{blog.created_at}</p>
             </div>
           </div>
-          <p className='blog-desc'>{blog.description}</p>
+          <p className='blog-desc'>{blog.content}</p>
         </div>
       ) : (
         <EmptyList />

@@ -5,9 +5,9 @@ import './styles.css';
 
 const BlogItem = ({
   blog: {
-    description,
+    content,
     title,
-    createdAt,
+    created_at,
     authorName,
     authorAvatar,
     cover,
@@ -15,23 +15,32 @@ const BlogItem = ({
     id,
   },
 }) => {
+  const handleReadMore = () => {
+    window.location.href = `/blogs/${id}`;
+  };
+
   return (
     <div className='blogItem-wrap'>
       <img className='blogItem-cover' src={cover} alt='cover' />
       <Chip label={category} />
       <h3>{title}</h3>
-      <p className='blogItem-desc'>{description}</p>
+      <p className='blogItem-desc'>{content}</p>
       <footer>
         <div className='blogItem-author'>
           <img src={authorAvatar} alt='avatar' />
           <div>
             <h6>{authorName}</h6>
-            <p>{createdAt}</p>
+            <p>{created_at}</p>
           </div>
         </div>
-        <Link className='blogItem-link' to={`/blog/${id}`}>
+        {/* <Link className='blogItem-link' to={`/blogs/category=${category}`}>
           Read ➝
-        </Link>
+        </Link> */}
+        {/* <button className='blogItem-link' onClick={handleReadMore}>
+          Read ➝
+        </button> */}
+        <Link to={`/blogs/${id}`}>Read More</Link>
+
       </footer>
     </div>
   );
