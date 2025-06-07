@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutPage.css'; // Assuming you have a CSS file for styles  
 
 const AboutPage = () => {
   return (
@@ -13,12 +14,10 @@ const AboutPage = () => {
             <span className="text-xl font-bold text-blue-600">Adarsh Writes</span>
           </div>
           <nav className="flex items-center space-x-8">
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
-            <a href="#" className="text-blue-600 font-medium">About</a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-              Write Blog
-            </button>
+            <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+            <a href="/about" className="text-blue-600 font-medium">About</a>
+            <a href="/contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+            
           </nav>
         </div>
       </header>
@@ -30,7 +29,7 @@ const AboutPage = () => {
           <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-12 text-white text-center">
             <div className="w-32 h-32 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
               <div className="w-28 h-28 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center">
-                <span className="text-4xl">👨‍💻</span>
+                <span className="text-4xl" ></span>
               </div>
             </div>
             <h1 className="text-4xl font-bold mb-4">About Adarsh</h1>

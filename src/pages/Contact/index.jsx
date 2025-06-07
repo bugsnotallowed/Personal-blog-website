@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import '../AboutPage.css';
 
 let user_name;
 let user_email;
@@ -105,12 +106,10 @@ const Contact = () => {
                 <span className="text-xl font-bold text-blue-600">Adarsh Writes</span>
               </div>
               <nav className="flex items-center space-x-8">
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
-                <a href="#" className="text-blue-600 font-medium">Contact</a>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                  Write Blog
-                </button>
+                <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                <a href="/about" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+                <a href="/contact" className="text-blue-600 font-medium">Contact</a>
+              
               </nav>
             </div>
           </header>
@@ -135,7 +134,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="opacity-80">adarsh@example.com</p>
+                      <p className="opacity-80">adarsh.signin173@gmail.com</p>
                     </div>
                   </div>
 
@@ -158,10 +157,7 @@ const Contact = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="font-semibold">Response Time</h3>
-                      <p className="opacity-80">Usually within 24 hours</p>
-                    </div>
+
                   </div>
                 </div>
 

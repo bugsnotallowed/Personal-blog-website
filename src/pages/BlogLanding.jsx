@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './BlogLanding.css';
+import { Link } from 'react-router-dom';
 
 const BlogLanding = () => {
   const [blogs, setBlogs] = useState([]);
+  const [id, setId] = useState([]);
   const [featuredBlog, setFeaturedBlog] = useState(null);
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
@@ -35,14 +37,14 @@ const BlogLanding = () => {
     try {
       setIsLoading(true);
       const queryParams = new URLSearchParams();
-      
+
       if (filters.category) queryParams.append('category', filters.category);
       if (filters.subCategory) queryParams.append('subCategory', filters.subCategory);
       if (filters.search) queryParams.append('search', filters.search);
 
       const response = await fetch(`${API_BASE_URL}/blogs?${queryParams}`);
       const data = await response.json();
-      
+
       setBlogs(data);
       if (data.length > 0) {
         setFeaturedBlog(data[0]);
@@ -53,6 +55,8 @@ const BlogLanding = () => {
       setIsLoading(false);
     }
   };
+
+
 
   const fetchCategories = async () => {
     try {
@@ -107,65 +111,6 @@ const BlogLanding = () => {
     fetchBlogs();
   };
 
-  const handleFormSubmit = async () => {
-    const formDataToSend = new FormData();
-    formDataToSend.append('title', formData.title);
-    formDataToSend.append('category', formData.category);
-    formDataToSend.append('subCategory', JSON.stringify(formData.subCategory.split(',').map(s => s.trim())));
-    formDataToSend.append('description', formData.description);
-    formDataToSend.append('authorName', formData.authorName);
-    
-    if (formData.cover) {
-      formDataToSend.append('cover', formData.cover);
-    }
-    if (formData.authorAvatar) {
-      formDataToSend.append('authorAvatar', formData.authorAvatar);
-    }
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/blogs`, {
-        method: 'POST',
-        body: formDataToSend
-      });
-
-      if (response.ok) {
-        alert('Blog created successfully!');
-        setShowBlogForm(false);
-        setFormData({
-          title: '',
-          category: '',
-          subCategory: '',
-          description: '',
-          authorName: '',
-          cover: null,
-          authorAvatar: null
-        });
-        fetchBlogs();
-      } else {
-        alert('Error creating blog');
-      }
-    } catch (error) {
-      console.error('Error creating blog:', error);
-      alert('Error creating blog');
-    }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleFileChange = (e) => {
-    const { name, files } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: files[0]
-    }));
-  };
-
   const truncateText = (text, limit) => {
     if (text.length <= limit) return text;
     return text.substring(0, limit) + '...';
@@ -187,11 +132,11 @@ const BlogLanding = () => {
                 <li><a href="/contact">Contact</a></li>
               </ul>
             </nav>
-            <div className="header-actions">
+            {/* <div className="header-actions">
               <button className="btn-secondary" onClick={() => setShowBlogForm(true)}>
                 Write Blog
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </header>
@@ -202,8 +147,8 @@ const BlogLanding = () => {
           <div className="container">
             <div className="hero-content">
               <div className="hero-image">
-                <img 
-                  src={featuredBlog.cover || '/api/placeholder/600/400'} 
+                <img
+                  src={featuredBlog.cover || '/api/placeholder/600/400'}
                   alt={featuredBlog.title}
                   onError={(e) => {
                     e.target.src = '/api/placeholder/600/400';
@@ -230,7 +175,14 @@ const BlogLanding = () => {
                 <p className="hero-description">
                   {truncateText(featuredBlog.description, 200)}
                 </p>
-                <button className="btn-primary">Read More →</button>
+                {blogs.map((blog) => (
+                  <article key={blog.id}>
+                    {/* ... your content ... */}
+                    <Link to={`/blog/${blog.id}`} className="btn-link">
+                      Read More →
+                    </Link>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
@@ -291,8 +243,8 @@ const BlogLanding = () => {
               {blogs.slice(1).map(blog => (
                 <article key={blog.id} className="article-card">
                   <div className="article-image">
-                    <img 
-                      src={blog.cover || '/api/placeholder/350/200'} 
+                    <img
+                      src={blog.cover || '/api/placeholder/350/200'}
                       alt={blog.title}
                       onError={(e) => {
                         e.target.src = '/api/placeholder/350/200';
@@ -314,12 +266,12 @@ const BlogLanding = () => {
                       {truncateText(blog.description, 120)}
                     </p>
                     <div className="article-author">
-                      <img 
-                        src={blog.authorAvatar || '/api/placeholder/40/40'} 
+                      <img
+                        src={blog.authorAvatar || 'https://res.cloudinary.com/dkjvesqtz/image/upload/v1749235947/blog-images/fanq3y09mdqtdh2yjnsh.png'}
                         alt={blog.authorName}
                         className="author-avatar"
                         onError={(e) => {
-                          e.target.src = '/api/placeholder/40/40';
+                          e.target.src = 'https://res.cloudinary.com/dkjvesqtz/image/upload/v1749235947/blog-images/fanq3y09mdqtdh2yjnsh.png';
                         }}
                       />
                       <span className="author-name">{blog.authorName}</span>
@@ -340,12 +292,12 @@ const BlogLanding = () => {
       </section>
 
       {/* Blog Form Modal */}
-      {showBlogForm && (
+      {/* {showBlogForm && (
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-header">
               <h2>Create New Blog</h2>
-              <button 
+              <button
                 className="modal-close"
                 onClick={() => setShowBlogForm(false)}
               >
@@ -432,7 +384,7 @@ const BlogLanding = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

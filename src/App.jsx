@@ -4,16 +4,19 @@ import './App.css';
 import Contact from './pages/Contact';
 import BlogLanding from './pages/BlogLanding';
 import AboutPage from './pages/AboutPage';
+import BlogDetail from './pages/BlogDetail';
+import CreateBlog from './pages/CreateBlog';
 
 const App = () => {
   return (
     <div className='container'>
       <Switch>
-        <Route path='/' exact component={BlogLanding} />
-        {/* <Route path='/blogs/:id' component={Blog} /> */}
-        <Route path='/contact' component={Contact} />
-        <Route path='/about' component={AboutPage} />
-        {/* <Route path='/create' component={CreateBlog} /> */}
+        <Route path="/" exact component={BlogLanding} />
+        <Route path="/blog/:id" component={BlogDetail} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/createblog" component={CreateBlog} />
+        {/* ...other routes */}
       </Switch>
     </div>
   );

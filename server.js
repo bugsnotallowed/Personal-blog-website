@@ -5,7 +5,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const { env } = require("process");
-require("dotenv").config();
+require("dotenv").config("./.env");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,15 +13,11 @@ const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_NAME = process.env.DB_NAME;
 
+const authorpic = "https://res.cloudinary.com/dkjvesqtz/image/upload/v1749235947/blog-images/fanq3y09mdqtdh2yjnsh.png";
+
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use("/uploads", express.static("uploads"));
-
-// Create uploads directory if it doesn't exist
-if (!fs.existsSync("uploads")) {
-  fs.mkdirSync("uploads");
-}
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -39,12 +35,11 @@ const storage = multer.diskStorage({
   },
 });
 
-
 // MySQL connection
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: DB_USER,
-  password: 'Adarsh#MySQL1223',
+  password: process.env.DB_PASSWORD,
   database: DB_NAME,
 });
 
@@ -103,7 +98,6 @@ function parseSubCategory(value) {
   }
 }
 
-
 // Routes
 
 const upload = require("./cloudinaryStorage"); // use Cloudinary storage
@@ -118,7 +112,7 @@ app.post(
     const { title, category, subCategory, description, authorName } = req.body;
 
     const coverPath = req.files?.cover?.[0]?.path || null;
-    const authorAvatarPath = req.files?.authorAvatar?.[0]?.path || null;
+    const authorAvatarPath = req.files?.authorAvatar?.[0]?.path || authorpic;
 
     let parsedSubCategory;
     try {
@@ -231,14 +225,26 @@ app.get("/api/blogs/:id", (req, res) => {
       return;
     }
 
+    // const blog = {
+    //   ...results[0],
+    //   subCategory: JSON.parse(results[0].subCategory || "[]"),
+    //   createdAt: new Date(results[0].createdAt).toLocaleDateString("en-US", {
+    //     year: "numeric",
+    //     month: "long",
+    //     day: "numeric",
+    //   }),
+    // };
+
     const blog = {
       ...results[0],
-      subCategory: JSON.parse(results[0].subCategory || "[]"),
-      createdAt: new Date(results[0].createdAt).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }),
+      subCategory: parseSubCategory(results[0].subCategory || "[]"),
+      createdAt: results[0].createdAt
+        ? new Date(results[0].createdAt).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        : null,
     };
 
     res.json(blog);
@@ -320,7 +326,6 @@ app.get("/api/categories", (req, res) => {
   });
 });
 
-
 // Get unique subcategories
 // app.get("/api/subcategories", (req, res) => {
 //   db.query("SELECT subCategory FROM blogs", (err, results) => {
@@ -358,7 +363,6 @@ app.get("/api/subcategories", (req, res) => {
     res.json(Array.from(allSubCategories));
   });
 });
-
 
 // Delete blog
 app.delete("/api/blogs/:id", (req, res) => {
