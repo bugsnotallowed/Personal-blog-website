@@ -52,7 +52,7 @@ const CreateBlog = () => {
           cover: null,
           authorAvatar: null
         });
-        
+
         // navigate("/"); // Reload to see the new blog in the list
         //fetchBlogs();
       } else {
