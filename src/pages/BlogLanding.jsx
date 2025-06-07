@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const BlogLanding = () => {
   const [blogs, setBlogs] = useState([]);
-  const [id, setId] = useState([]);
+  //const [id, setId] = useState([]);
   const [featuredBlog, setFeaturedBlog] = useState(null);
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
@@ -12,18 +12,18 @@ const BlogLanding = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubCategory, setSelectedSubCategory] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [showBlogForm, setShowBlogForm] = useState(false);
+  //const [showBlogForm, setShowBlogForm] = useState(false);
 
   // Blog form state
-  const [formData, setFormData] = useState({
-    title: '',
-    category: '',
-    subCategory: '',
-    description: '',
-    authorName: '',
-    cover: null,
-    authorAvatar: null
-  });
+  // const [formData, setFormData] = useState({
+  //   title: '',
+  //   category: '',
+  //   subCategory: '',
+  //   description: '',
+  //   authorName: '',
+  //   cover: null,
+  //   authorAvatar: null
+  // });
 
   const API_BASE_URL = 'http://localhost:5000/api';
 

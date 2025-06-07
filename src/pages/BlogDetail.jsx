@@ -9,7 +9,6 @@ const BlogDetail = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isLiked, setIsLiked] = useState(false);
 
   const fetchBlogById = async (id) => {
     try {
@@ -29,10 +28,6 @@ const BlogDetail = () => {
 
   if (loading) return <div>Loading...</div>;
   if (!blog) return <div>Blog not found</div>;
-
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-  };
 
   return (
     <div className="blog-detail">

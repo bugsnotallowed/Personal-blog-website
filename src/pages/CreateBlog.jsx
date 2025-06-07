@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './BlogLanding.css';
 //import { useNavigate  } from 'react-router-dom';
 
@@ -78,11 +78,6 @@ const CreateBlog = () => {
       ...prev,
       [name]: files[0]
     }));
-  };
-
-  const truncateText = (text, limit) => {
-    if (text.length <= limit) return text;
-    return text.substring(0, limit) + '...';
   };
 
   return (

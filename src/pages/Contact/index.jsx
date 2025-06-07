@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Link } from 'react-router-dom';
 import './styles.css';
 import '../AboutPage.css';
 
@@ -15,8 +14,8 @@ const Contact = () => {
       e.preventDefault();
 
       emailjs
-        .sendForm('service_nxiind2', 'template_3slyeqh', form.current, {
-          publicKey: 'zziYgU1TWsjenhrQv',
+        .sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, form.current, {
+          publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
         })
         .then(
           () => {
@@ -26,6 +25,7 @@ const Contact = () => {
           (error) => {
             console.log('FAILED...', error.text);
           },
+          setIsSubmitted(true),
         );
     };
 
@@ -189,6 +189,7 @@ const Contact = () => {
                 {!isSubmitted ? (
                   <>
                     <h2 className="text-3xl font-bold text-gray-800 mb-6">Send Me a Message</h2>
+                    <form onSubmit={sendEmail}>
                     <div className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
@@ -214,6 +215,7 @@ const Contact = () => {
                             type="email"
                             id="user_email"
                             name='user_email'
+                            value = {user_email}
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                             placeholder="john@example.com"
@@ -257,6 +259,7 @@ const Contact = () => {
                         Send Message
                       </button>
                     </div>
+                  </form>
                   </>
                 ) : (
                   <div className="text-center py-12">
