@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Contact from './pages/Contact';
-import BlogLanding from './pages/BlogLanding';
+// import BlogLanding from './pages/BlogLanding';
 import BlogLanding2 from './pages/BlogLanding2';
 import AboutPage from './pages/AboutPage';
 import BlogDetail from './pages/BlogDetail';

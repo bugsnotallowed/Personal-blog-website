@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Calendar, User, ArrowRight, Filter, X } from 'lucide-react';
+import { Search, Calendar, ArrowRight, Filter } from 'lucide-react';
 import './BlogLandingPage.css';
 
 // Sample data - replace this with your actual data.js import
@@ -132,7 +132,7 @@ const BlogLandingPage = () => {
               <div className="hero-footer">
                 <div className="author-info">
                   <div className="author-avatar">
-                    <img loading="lazy" src={heroBlog.authorAvatar} ></img>
+                    <img loading="lazy" src={heroBlog.authorAvatar} alt={heroBlog.title} ></img>
                   </div>
                   <div className="author-details">
                     <p className="author-name">{heroBlog.authorName}</p>
@@ -251,7 +251,7 @@ const BlogCard = ({ blog, onClick }) => {
         <div className="blog-card-footer">
           <div className="blog-card-author">
             <div className="blog-card-avatar">
-              <img loading="lazy" src={blog.authorAvatar} ></img>
+              <img loading="lazy" src={blog.authorAvatar} alt={blog.title} ></img>
             </div>
             <div className="blog-card-author-info">
               <p className="blog-card-author-name">{blog.authorName}</p>
