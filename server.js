@@ -64,7 +64,6 @@ const createBlogsTable = `
     authorAvatar VARCHAR(255),
     cover VARCHAR(255),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
   )
 `;
 

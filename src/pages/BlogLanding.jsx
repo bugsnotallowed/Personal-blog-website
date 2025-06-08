@@ -123,7 +123,7 @@ const BlogLanding = () => {
         <div className="container">
           <div className="header-content">
             <div className="logo">
-              <h1>📚 Adarsh Writes</h1>
+              <h1>📚 Adarsh Writes Blogs</h1>
             </div>
             <nav className="nav">
               <ul>

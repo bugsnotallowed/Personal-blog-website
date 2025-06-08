@@ -44,7 +44,7 @@ const BlogDetail = () => {
     //         <div className="nav-left">
     //           <div className="logo">
     //             <BookOpen size={24} />
-    //             <span>Adarsh Writes</span>
+    //             <span>Adarsh Writes Blogs</span>
     //           </div>
     //         </div>
     //         <div className="nav-center">
@@ -66,7 +66,7 @@ const BlogDetail = () => {
     //         <ArrowLeft size={20} />
     //         <span>Back to Blog</span>
     //       </button>
-          
+
     //       <div className="hero-content">
     //         <div className="blog-meta">
     //           {blog.featured && <span className="featured-badge">Featured</span>}
@@ -75,10 +75,10 @@ const BlogDetail = () => {
     //             {blog.readTime}
     //           </span>
     //         </div>
-            
+
     //         <h1 className="blog-title">{blog.title}</h1>
     //         <p className="blog-subtitle">{blog.subtitle}</p>
-            
+
     //         <div className="author-info">
     //           <div className="author-avatar">
     //             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Adarsh Gupta" />
@@ -108,7 +108,7 @@ const BlogDetail = () => {
     //         <article className="blog-content">
     //           <div dangerouslySetInnerHTML={{ __html: blog.description.replace(/\n\n## /g, '</p><h2>').replace(/\n\n/g, '</p><p>').replace(/^/, '<p>').replace(/$/, '</p>') }} />
     //         </article>
-            
+
     //         <aside className="blog-sidebar">
     //           <div className="sidebar-card">
     //             <h3>Quick Actions</h3>
@@ -126,7 +126,7 @@ const BlogDetail = () => {
     //               </button>
     //             </div>
     //           </div>
-              
+
     //           <div className="sidebar-card">
     //             <h3>Tags</h3>
     //             <div className="tags">
@@ -135,7 +135,7 @@ const BlogDetail = () => {
     //               ))}
     //             </div>
     //           </div>
-              
+
     //           <div className="sidebar-card">
     //             <h3>About the Author</h3>
     //             <div className="author-bio">
@@ -155,7 +155,7 @@ const BlogDetail = () => {
     //         <div className="footer-left">
     //           <div className="logo">
     //             <BookOpen size={24} />
-    //             <span>Adarsh Writes</span>
+    //             <span>Adarsh Writes Blogs</span>
     //           </div>
     //           <p>Transforming concepts into seamless experiences</p>
     //         </div>

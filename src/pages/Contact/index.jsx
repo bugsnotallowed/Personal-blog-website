@@ -103,7 +103,7 @@ const Contact = () => {
               <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center">
                 <span className="text-white font-bold text-sm">📚</span>
               </div>
-              <span className="text-xl font-bold text-blue-600">Adarsh Writes</span>
+              <span className="text-xl font-bold text-blue-600">Adarsh Writes Blogs</span>
             </div>
             <nav className="flex items-center space-x-8">
               <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
