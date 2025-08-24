@@ -50,7 +50,7 @@ const blogList = [
   },
   {
     id: 5,
-    title: "Perparation of Placements",
+    title: "Preparation of Placements",
     category: "Placement",
     subCategory: ["DSA", "Job", "College"],
     description: "As I prepare for placements, I wanted to share some insights and resources that have been incredibly helpful in my journey so far. 🚀\n\n1️⃣ **Understanding the Basics**: I started with the fundamentals of data structures and algorithms in Java. Websites like LeetCode, HackerRank, and GeeksforGeeks have been invaluable for practicing coding problems.\n\n2️⃣ **System Design**: For system design interviews, I recommend studying concepts like scalability, load balancing, and database design. Books like 'Designing Data-Intensive Applications' and online courses on Coursera or Udemy can provide a solid foundation.\n\n3️⃣ **Mock Interviews**: Participating in mock interviews has been a game-changer. Platforms like Pramp and Interviewing.io offer free mock interviews with peers and industry professionals.\n\n4️⃣ **Networking**: Connecting with alumni and professionals in the industry has opened doors to valuable insights and opportunities. LinkedIn is a great platform for this.\n\n5️⃣ **Soft Skills**: Don’t underestimate the power of soft skills! Communication, teamwork, and problem-solving abilities are crucial during interviews.\n\n6️⃣ **Stay Updated**: Keeping up with the latest trends in technology is essential. Follow tech blogs, podcasts, and YouTube channels to stay informed.\n\nRemember, preparation is key! Stay consistent, practice regularly, and don’t hesitate to seek help from mentors or peers. Good luck to everyone preparing for placements! 💪 #Placements #CareerPreparation #TechInterviews",
@@ -64,74 +64,7 @@ const blogList = [
     title: "Building a Decentralized Group Chat Application on Blockchain",
     category: "Projects",
     subCategory: ["Development", "Blockchain", "Website"],
-    description: "Building a Decentralized Group Chat Application on Blockchain
-
-In today’s digital era, communication platforms like WhatsApp, Discord, or Slack dominate the messaging space. While they work well, they are fundamentally centralized, storing our conversations on servers owned by corporations. This raises questions about **privacy, trust, and censorship resistance**. To explore how decentralized technologies can revolutionize communication, I built a **Group Chat Application powered by blockchain**.
-
-This project combines **smart contracts**, **Web3 integration**, and **real-time WebSocket updates** to deliver a messaging platform where messages are immutable, transparent, and verifiable. Instead of being stored in a private database, every message is written to the blockchain, creating a fully decentralized chat experience.
-
----
-
-### The Core Idea
-
-The application enables users to:
-
-* **Connect their MetaMask wallet** directly from the browser.
-* **Sign and send messages** via blockchain transactions.
-* **Retrieve past messages** stored on the smart contract.
-* **Receive real-time chat updates** using WebSockets without refreshing the page.
-
-By shifting message storage and verification to the blockchain, we eliminate the dependency on a central server for trust. Each message is linked to a wallet address, providing **authenticity and accountability**.
-
----
-
-### Backend: Express.js + Web3 + WebSocket
-
-The backend is built using **Express.js** with `web3.js` to communicate with the Ethereum blockchain (in this case, the **Sepolia testnet**).
----
-
-### Smart Contract: Solidity + Hardhat
-
-The backbone of this project is a Solidity smart contract named **GroupChat**.
-
-* It maintains a dynamic array of messages.
-* Each message consists of `sender`, `content`, and `timestamp`.
-* It exposes functions like `postMessage(string content)` and `getMessageCount()`.
-
-For deployment, I used **Hardhat**, a powerful Ethereum development framework. The steps included:
-
-1. Writing the contract in `contracts/MessageStorage.sol`.
-2. Compiling it with Hardhat (`npx hardhat compile`).
-3. Deploying it to the Sepolia testnet using an Infura/Alchemy RPC endpoint (`npx hardhat run scripts/deploy.js --network sepolia`).
-4. Saving the generated **ABI** and contract address for backend integration.
-
-This clean workflow made it easy to test, debug, and redeploy the smart contract iteratively.
-
----
-
-### Frontend: React + MetaMask Wallet
-
-The frontend is a **React application** where users interact with the blockchain directly from their browsers. A few notable features are:
-
-* **MetaMask Wallet Connection**: Users can choose the account they wish to connect. No hardcoding of private keys is required; transactions are signed locally by the wallet, ensuring security.
-* **Dynamic Message Signing**: Each outgoing message is signed with the user’s private key (handled by MetaMask) before being broadcasted.
-* **Real-Time UI Updates**: WebSockets ensure the chat feed refreshes automatically as soon as new blockchain transactions confirm.
-
----
-
-### Special Techniques Used
-
-* **Decentralized Authentication**: Instead of email-password login, wallet addresses serve as unique identities.
-* **Real-Time Blockchain Sync**: WebSocket bridging keeps all peers instantly updated with minimal delay.
-* **Smart Contract Transparency**: Messages cannot be modified or deleted once posted, ensuring trust.
-
----
-  
-### Conclusion
-
-This project was an exciting dive into the **intersection of Web3 and communication systems**. By leveraging blockchain for transparency, WebSockets for real-time updates, and MetaMask for secure signing, I built a **fully decentralized chatroom** where users truly own their conversations.
-
-This is just the beginning—future enhancements could include group creation, message encryption, token-based access control, or even NFT-based identities.",
+    description: "In an era where centralized platforms dominate online communication, I set out to explore how blockchain could redefine messaging by creating a Decentralized Group Chat Application. Unlike traditional chat apps that store messages on private servers, this project leverages smart contracts on Ethereum (Sepolia testnet) to store conversations in a transparent, immutable, and verifiable manner. Built with a Solidity smart contract deployed using Hardhat, the backend relies on Express.js and Web3.js to interact with the blockchain, exposing endpoints for sending and retrieving messages. To make the chat experience dynamic, I integrated WebSockets, ensuring that once a message is confirmed on the blockchain, it is broadcasted to all connected clients in real-time without requiring a refresh. On the frontend, a React application communicates directly with the blockchain through MetaMask integration, allowing users to securely connect their wallet, choose their account, and sign each message with their private key without exposing sensitive information. This means wallet addresses themselves serve as unique digital identities, eliminating the need for traditional login systems. Some of the techniques I implemented include real-time blockchain synchronization, secure transaction signing through MetaMask, and decentralized authentication via wallet addresses, all of which combine to create a messaging system that is transparent, censorship-resistant, and user-owned. The experience of building this project highlighted how decentralization can be extended beyond finance into everyday applications like communication. In the future, this system could evolve to include advanced features such as encrypted chats, multi-group creation, NFT-based identities, or token-gated access for exclusive communities. Overall, this project was a fascinating dive into the synergy of Web3 technologies, blockchain smart contracts, and real-time systems, showing how decentralized infrastructure can reshape something as common as chatting into a more secure and trustless experience.",
     authorName: "Adarsh Gupta",
     authorAvatar: "https://res.cloudinary.com/dkjvesqtz/image/upload/v1749235947/blog-images/fanq3y09mdqtdh2yjnsh.png",
     createdAt: "August 24, 2025",
@@ -142,75 +75,7 @@ This is just the beginning—future enhancements could include group creation, m
     title: "📹 One-to-One Video Chat Application with Messaging",
     category: "Projects",
     subCategory: ["WebRTC", "Socket", "Development"],
-    description: "📹 One-to-One Video Chat Application with Messaging
-
-A real-time **video chat application** with a built-in **messaging feature**, built using **WebRTC**, **Socket.io**, **Node.js**, and **React**.
-The project enables two users to connect in a **private room**, allowing them to **video call, mute/unmute mic, enable/disable camera, and exchange text messages**.
-
----
-
-## 🚀 Features
-
-* ✅ One-to-one **video call** using WebRTC
-* ✅ Real-time **text messaging** inside the same room
-* ✅ **Mute/Unmute microphone** & **Turn on/off video** controls
-* ✅ **Socket.io signaling server** for peer discovery & connection setup
-* ✅ **React Context** for managing Socket connection across components
-* ✅ Deployed on **Render (Backend)** & **Vercel (Frontend)**
-
----
-
-## ⚙️ How It Works
-
-### 1. **Frontend (React)**
-
-* `SocketProvider.js`
-  Wraps the app with a **Socket.io client instance**, connecting to backend (`Render` URL via `.env`).
-
-* `VideoPlayer.js`
-  Uses **WebRTC `getUserMedia` API** to capture webcam & microphone stream.
-  Establishes **peer-to-peer connection** once the signaling is done via Socket.io.
-
-* `ChatBox.js`
-  Simple chat window where users exchange messages using **socket events**.
-
-* `Controls.js`
-  Buttons to **mute/unmute microphone** and **enable/disable camera** (toggling `MediaStreamTrack.enabled`).
-
----
-
-### 2. **Backend (Node.js + Socket.io)**
-
-The backend acts as a **signaling server** (does not transmit video/audio, only coordinates connections).
-
-* **Maps emails/users to socket IDs**
-* Handles events:
-
-  * `room:join` → When a user joins a room
-  * `user:joined` → Notifies all users in the room about new participant
-  * `signal` → Relays WebRTC offer/answer/ICE candidates between peers
----
-
-### 3. **WebRTC Flow**
-
-1. User A joins → requests camera & mic access
-2. User A emits `room:join` → server maps user to room
-3. User B joins same room → both discover each other
-4. Peers exchange **SDP Offer/Answer & ICE Candidates** via Socket.io
-5. Direct **peer-to-peer connection established** → video/audio streams flow directly
-6. Text messages exchanged over **Socket.io events** 
-  
-## 🌍 Deployment
-
-### Backend
-
-* Deployed on [Render](https://render.com/)
-* Add a **Start Command** in `package.json` → `"start": "node index.js"`
-
-### Frontend
-
-* Deployed on [Vercel](https://videochatappwebrtc.vercel.app/)
-                       ",
+    description: "With the rise of remote collaboration and digital communication, I wanted to explore how real-time technologies power seamless video interactions, so I built a One-to-One Video Chat Application with Messaging using WebRTC, Socket.io, Node.js, and React. The project allows two users to connect in a private room where they can not only start a video call but also mute/unmute their microphone, toggle the camera, and exchange text messages in real time. At its core, the system uses WebRTC’s getUserMedia API to capture webcam and microphone streams, establishing a direct peer-to-peer connection between users once the initial signaling is handled. The backend, built with Node.js and Socket.io, functions as a signaling server—it doesn’t transmit the media itself but instead coordinates peer discovery and relays SDP offers, answers, and ICE candidates required for WebRTC connections. The frontend, powered by React, manages the socket connection globally through a SocketProvider context, while dedicated components like VideoPlayer, ChatBox, and Controls handle media rendering, text messaging, and user controls respectively. Special techniques in this project include real-time signaling with Socket.io events, direct peer-to-peer video streaming with WebRTC (ensuring low latency), and state management via React Context API to keep the experience smooth across components. Unlike centralized video platforms, this lightweight solution demonstrates how WebRTC enables browsers to communicate directly, drastically reducing server load. I deployed the backend on Render and the frontend on Vercel, making it accessible as a fully functional web app. This project gave me hands-on experience with real-time communication protocols, peer-to-peer networking, and event-driven architectures, and showed how modern web technologies can be combined to deliver secure, low-latency video calling experiences without relying on heavyweight third-party platforms.",
     authorName: "Adarsh Gupta",
     authorAvatar: "https://res.cloudinary.com/dkjvesqtz/image/upload/v1749235947/blog-images/fanq3y09mdqtdh2yjnsh.png",
     createdAt: "August 30, 2025",
