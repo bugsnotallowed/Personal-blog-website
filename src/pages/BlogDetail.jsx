@@ -31,7 +31,7 @@ const BlogDetail = () => {
 
   return (
     <div className="blog-detail">
-      <img src={blog.cover} alt={blog.title} />
+      <img loading="lazy" src={blog.cover} alt={blog.title} />
       <h1>{blog.title}</h1>
       <p>By {blog.authorName}</p>
       <div>{blog.description}</div>
