@@ -4,23 +4,7 @@ import './AboutPage.css'; // Assuming you have a CSS file for styles
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-sm">📚</span>
-            </div>
-            <span className="text-xl font-bold text-blue-600">Adarsh Writes Blogs</span>
-          </div>
-          <nav className="flex items-center space-x-8">
-            <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
-            <a href="/about" className="text-blue-600 font-medium">About</a>
-            <a href="/contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
 
-          </nav>
-        </div>
-      </header>
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-16">
@@ -28,8 +12,8 @@ const AboutPage = () => {
           {/* Hero Section */}
           <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-12 text-white text-center">
             <div className="w-32 h-32 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
-              <div className="w-28 h-28 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center">
-                <span className="text-4xl" ></span>
+              <div className="author-avatar">
+                <img src="https://res.cloudinary.com/dkjvesqtz/image/upload/v1749235947/blog-images/fanq3y09mdqtdh2yjnsh.png" alt="Adarsh Gupta" />
               </div>
             </div>
             <h1 className="text-4xl font-bold mb-4">About Adarsh</h1>

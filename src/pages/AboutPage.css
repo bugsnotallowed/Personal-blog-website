@@ -482,3 +482,17 @@ p {
     gap: 1.5rem;
   }
 }
+
+.author-avatar {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #8b5cf6;
+}
+
+.author-avatar img {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+}

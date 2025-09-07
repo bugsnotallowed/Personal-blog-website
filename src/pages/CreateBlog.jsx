@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './BlogLanding.css';
 //import { useNavigate  } from 'react-router-dom';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:5000/api/blogs';
 
 const CreateBlog = () => {
   const [showBlogForm, setShowBlogForm] = useState(false);
@@ -35,7 +35,7 @@ const CreateBlog = () => {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/blogs`, {
+      const response = await fetch(`${API_BASE_URL}/`, {
         method: 'POST',
         body: formDataToSend
       });

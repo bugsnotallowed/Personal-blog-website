@@ -12,9 +12,8 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: full;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .details-container {
